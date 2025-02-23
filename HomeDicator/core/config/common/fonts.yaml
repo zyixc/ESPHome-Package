@@ -19,6 +19,16 @@ font:
       "\U000F12A3", # mdi:battery-high
       "\U000F12A2", # mdi:battery-medium
       "\U000F008E", # mdi:battery-outline
+      "\U000F0082", # mdi:battery-90
+      "\U000F0081", # mdi:battery-80
+      "\U000F0080", # mdi:battery-70
+      "\U000F007F", # mdi:battery-60
+      "\U000F007E", # mdi:battery-50
+      "\U000F007D", # mdi:battery-40
+      "\U000F007C", # mdi:battery-30
+      "\U000F007B", # mdi:battery-20
+      "\U000F007A", # mdi:battery-10
+      "\U000F0091", # mdi:battery-unknown
       "\U000F02E3", # mdi:bed
       "\U000F0099", # mdi:bed-outline
       "\U000F0FD2", # mdi:bed-king
@@ -217,6 +227,7 @@ font:
       "\U000F0502", # mdi:television
       "\U000F1356", # mdi:television-ambient-light
       "\U000F07F4", # mdi:television-classic
+      "\U000F1110", # mdi:television-shimmer
       "\U000F050D", # mdi:theater
       "\U000F050F", # mdi:thermometer
       "\U000F0510", # mdi:thermometer-lines

@@ -27,3 +27,6 @@ Temporary Items
 
 # Development files
 .esphome
+
+# Secrets
+secrets.yaml

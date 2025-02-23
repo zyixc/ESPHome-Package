@@ -39,10 +39,12 @@ obj:
               id: lvgl_value_label_${hass_sensor_id}
               text_font: libreFranklin32
               text: "n/a"
+              text_color: ${color}
           - label:
               pad_bottom: 5
               text_font: libreFranklin20Light
               text: ${unit}
+              text_color: ${color}
     - label:
         styles: info_or_button_tile_subtitle
         text: ${title}

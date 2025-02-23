@@ -1,0 +1,78 @@
+platform: homeassistant
+id: ${hass_sensor_id}
+entity_id: sensor.${hass_sensor_id}
+on_value:
+- lvgl.label.update:
+    id: lvgl_value_label_${hass_sensor_id}
+    text: !lambda |-
+      char buffer[10];
+      snprintf(buffer, sizeof(buffer), "%.0f", x);
+      return buffer;
+- lvgl.label.update:
+    id: lvgl_value_icon_${hass_sensor_id}
+    text: !lambda |-
+      char buffer[10];
+      std::string icon;
+      int i = static_cast<int>(x);
+      if (i == 100.0) {
+        icon = "\U000F0079"; // mdi-battery (full)
+      } else if (i > 90) {
+        icon = "\U000F0082"; // mdi-battery-90
+      } else if (i > 80) {
+        icon = "\U000F0081"; // mdi-battery-80
+      } else if (i > 70) {
+        icon = "\U000F0080"; // mdi-battery-70
+      } else if (i > 60) {
+        icon = "\U000F007F"; // mdi-battery-60
+      } else if (i > 50) {
+        icon = "\U000F007E"; // mdi-battery-50
+      } else if (i > 40) {
+        icon = "\U000F007D"; // mdi-battery-40
+      } else if (i > 30) {
+        icon = "\U000F007C"; // mdi-battery-30
+      } else if (i > 20) {
+        icon = "\U000F007B"; // mdi-battery-20
+      } else if (i > 10) {
+        icon = "\U000F007A"; // mdi-battery-10
+      } else if (i > 0) {
+        icon = "\U000F008E"; // mdi-battery-outline
+      } else {
+        icon = "\U000F0091"; // mdi-battery-unknown
+      }
+      snprintf(buffer, sizeof(buffer), "%s", icon.c_str());
+      return buffer;
+on_value_range:
+- below: 20.0
+  then:
+  - lvgl.label.update:
+      id: lvgl_value_label_${hass_sensor_id}
+      text_color: red
+  - lvgl.label.update:
+      id: lvgl_value_unit_${hass_sensor_id}
+      text_color: red
+  - lvgl.obj.update:
+      id: lvgl_value_icon_bg_${hass_sensor_id}
+      bg_color: red
+- above: 20.0
+  below: 50.0
+  then:
+  - lvgl.label.update:
+      id: lvgl_value_label_${hass_sensor_id}
+      text_color: orange
+  - lvgl.label.update:
+      id: lvgl_value_unit_${hass_sensor_id}
+      text_color: orange
+  - lvgl.obj.update:
+      id: lvgl_value_icon_bg_${hass_sensor_id}
+      bg_color: orange
+- above: 50.0
+  then:
+  - lvgl.label.update:
+      id: lvgl_value_label_${hass_sensor_id}
+      text_color: green
+  - lvgl.label.update:
+      id: lvgl_value_unit_${hass_sensor_id}
+      text_color: green
+  - lvgl.obj.update:
+      id: lvgl_value_icon_bg_${hass_sensor_id}
+      bg_color: green
