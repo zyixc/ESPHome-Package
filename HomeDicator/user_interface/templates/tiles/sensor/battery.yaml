@@ -12,6 +12,7 @@ obj:
     - obj:
         id: lvgl_value_icon_bg_${hass_sensor_id}
         bg_opa: COVER
+        bg_color: white
         pad_all: 0
         height: 52
         width: 100
@@ -54,13 +55,15 @@ obj:
               widgets:
                 - label:
                     id: lvgl_value_label_${hass_sensor_id}
-                    text_font: libreFranklin50
                     text: "n/a"
+                    text_font: libreFranklin50
+                    text_color: white
                 - label:
                     id: lvgl_value_unit_${hass_sensor_id}
                     pad_bottom: 10
-                    text_font: libreFranklin25Light
                     text: "%"
+                    text_font: libreFranklin25Light
+                    text_color: white
           - label:
               styles: info_or_button_tile_subtitle
               text: ${title}
